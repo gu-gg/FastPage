@@ -1,0 +1,334 @@
+{
+  "algorithm": "FastPage",
+  "date_utc": "2026-10-18T02:16:03.728277+00:00",
+  "platform_scope": "ARM64 Linux KVM development desktop; single CPU; not bare-metal acceptance",
+  "compiler": "cc (Ubuntu 13.3.0-6ubuntu2~24.04) 13.3.0",
+  "build_flags": "-O3 -std=c11 -Wall -Wextra -Werror -flto -fno-plt -march=armv8-a+crc",
+  "source_sha256": {
+    "Makefile": "1f620186082fe926146a481887f9129308206dc2c78927aa7ff2b6f2152e61de",
+    "bench/benchmark.c": "cb920b948b276f3cdf7d43aa9da0a6f2fac0d8c530fe9da1030b8e19e675439d",
+    "include/codec.h": "1ffabfac123f92ce2b5f58fcb115561292e982519eb08b3f90648c8b69fc5df7",
+    "src/decoder.c": "576fd69b15555a0bbe6ba2e41ece7ab78764fec42a1241709b1bd198ea80b6d0",
+    "src/encoder.c": "507a10bdf7f470b4c3a6cd9e8409c9738a95bc6636f8047f37454dcd1c57ab52",
+    "src/numeric_decode.inc": "b987da21ba45d7b223430911a50c24814c19d2903273e9fd71032e3fb6945d21",
+    "src/numeric_encode.inc": "1bfb39cd3955cc3b624e7fba4ef8d13c0527ddbfca5d52dcf0c309b525e0735c",
+    "tools/benchmark.py": "cc21bbb921161faf7c44f14c200a0e1ccafd49458bbd5b4a8cad3994ee10f7bf",
+    "tools/fetch_corpus.py": "cb92f80f44ef8dda3a4e06fdd099a0777a3699b3be5c1611f2110d058bf11f72"
+  },
+  "binaries": {
+    "build/libfastpage.so": {
+      "sha256": "b0d15d7602c0cbed67a6317a4803d468dfb55e06ac4320ba270764341b9baf07",
+      "bytes": 70368
+    },
+    "build/benchmark": {
+      "sha256": "b81ba7e9329ddb8fc55718aa3e281eac6e4e86ce9855b0b141cc89fc3488e18c",
+      "bytes": 72672
+    }
+  },
+  "correctness": {
+    "optimized_examples_and_tests": "passed",
+    "asan_ubsan_tests": "passed",
+    "sanitizer_corpus_pages": 51746,
+    "sanitizer_corpus_payload_bytes": 129137098,
+    "synthetic_roundtrips": 53248,
+    "arbitrary_damaged_inputs": 10000,
+    "independent_decoder_vectors": 67483,
+    "guard_and_vector_results": [
+      {
+        "status": "passed",
+        "c2_packed_vectors": 13056,
+        "c2_raw_subblocks": 128,
+        "c2_constant_vectors": 143,
+        "e5_vectors": 54156,
+        "skipped_noncompressible_or_oversize": 4,
+        "exact_allocations": true,
+        "encoder_called": false
+      },
+      {
+        "status": "passed",
+        "guarded_roundtrips": 960,
+        "invalid_sizes_rejected": 2,
+        "history_checks": 410,
+        "concurrent_checks": 512,
+        "raw_pages": 150,
+        "e5_pages": 206,
+        "c2_pages": 124,
+        "system_page_bytes": 4096
+      }
+    ],
+    "relocated_source_only_build_and_corpus_verify": "passed",
+    "static_and_shared_link_examples": "passed"
+  },
+  "benchmark_summary": {
+    "algorithm": "FastPage",
+    "mode": "benchmark",
+    "input_bytes": 211938580,
+    "pages": 51746,
+    "full_pages": 51738,
+    "partial_pages": 8,
+    "stored_payload_bytes": 129137098,
+    "compression_ratio": 1.6411905121175945,
+    "stored_percent": 60.93137832668314,
+    "saved_percent": 39.06862167331686,
+    "raw_pages": 3082,
+    "roundtrip": "passed",
+    "rounds": 5,
+    "timing_samples": 10,
+    "cpu": 0,
+    "files": [
+      {
+        "file": "dickens",
+        "input_bytes": 10192446,
+        "stored_bytes": 9701059,
+        "blocks": 2489,
+        "raw_blocks": 127
+      },
+      {
+        "file": "mozilla",
+        "input_bytes": 51220480,
+        "stored_bytes": 33983107,
+        "blocks": 12505,
+        "raw_blocks": 885
+      },
+      {
+        "file": "mr",
+        "input_bytes": 9970564,
+        "stored_bytes": 3194050,
+        "blocks": 2435,
+        "raw_blocks": 0
+      },
+      {
+        "file": "nci",
+        "input_bytes": 33553445,
+        "stored_bytes": 8779884,
+        "blocks": 8192,
+        "raw_blocks": 0
+      },
+      {
+        "file": "ooffice",
+        "input_bytes": 6152192,
+        "stored_bytes": 5279874,
+        "blocks": 1502,
+        "raw_blocks": 56
+      },
+      {
+        "file": "osdb",
+        "input_bytes": 10085684,
+        "stored_bytes": 9558455,
+        "blocks": 2463,
+        "raw_blocks": 44
+      },
+      {
+        "file": "reymont",
+        "input_bytes": 6627202,
+        "stored_bytes": 5104879,
+        "blocks": 1618,
+        "raw_blocks": 3
+      },
+      {
+        "file": "samba",
+        "input_bytes": 21606400,
+        "stored_bytes": 11557857,
+        "blocks": 5275,
+        "raw_blocks": 226
+      },
+      {
+        "file": "sao",
+        "input_bytes": 7251944,
+        "stored_bytes": 7251847,
+        "blocks": 1771,
+        "raw_blocks": 1741
+      },
+      {
+        "file": "webster",
+        "input_bytes": 41458703,
+        "stored_bytes": 28337985,
+        "blocks": 10122,
+        "raw_blocks": 0
+      },
+      {
+        "file": "xml",
+        "input_bytes": 5345280,
+        "stored_bytes": 2048718,
+        "blocks": 1305,
+        "raw_blocks": 0
+      },
+      {
+        "file": "x-ray",
+        "input_bytes": 8474240,
+        "stored_bytes": 4339383,
+        "blocks": 2069,
+        "raw_blocks": 0
+      }
+    ],
+    "measurement": {
+      "page_bytes": 4096,
+      "compressed_slot_stride": 5120,
+      "decoded_slot_stride": 4096,
+      "units": "decimal MB/s, using original input bytes for both directions",
+      "all_samples_retained": true,
+      "target_seconds": 1.5,
+      "calibration": "One untimed full-corpus pass per direction per round; ceil(target/warmup), capped at 64 loops. The target is not a guaranteed minimum duration.",
+      "scope": "Each page, including internal RAW pages, calls the public codec function pointer. Corpus IO, checksums and byte comparisons are outside timing.",
+      "ratio_scope": "Encoded payload only; slot padding, external lengths and indexing are excluded."
+    },
+    "compress": {
+      "samples": 5,
+      "median_MBps": 679.04093,
+      "min_MBps": 675.812033,
+      "max_MBps": 681.839658,
+      "equivalent_us_per_4096_bytes": 6.032036978978572,
+      "median_thread_cpu_to_wall": 0.9998557909712467
+    },
+    "decompress": {
+      "samples": 5,
+      "median_MBps": 2907.661384,
+      "min_MBps": 2879.687803,
+      "max_MBps": 3022.8078,
+      "equivalent_us_per_4096_bytes": 1.408692230305453,
+      "median_thread_cpu_to_wall": 0.9998795138260044
+    }
+  },
+  "all_timing_samples": [
+    {
+      "type": "sample",
+      "round": 1,
+      "operation": "compress",
+      "loops": 5,
+      "input_bytes_per_loop": 211938580,
+      "warmup_wall_seconds": 0.310305458,
+      "target_seconds": 1.5,
+      "calibration_loop_limit": 64,
+      "wall_seconds": 1.557570276,
+      "thread_cpu_seconds": 1.55728552,
+      "wall_MBps": 680.349976,
+      "thread_cpu_MBps": 680.474381
+    },
+    {
+      "type": "sample",
+      "round": 1,
+      "operation": "decompress",
+      "loops": 21,
+      "input_bytes_per_loop": 211938580,
+      "warmup_wall_seconds": 0.073192107,
+      "target_seconds": 1.5,
+      "calibration_loop_limit": 64,
+      "wall_seconds": 1.54555302,
+      "thread_cpu_seconds": 1.54541029,
+      "wall_MBps": 2879.687803,
+      "thread_cpu_MBps": 2879.953763
+    },
+    {
+      "type": "sample",
+      "round": 2,
+      "operation": "decompress",
+      "loops": 21,
+      "input_bytes_per_loop": 211938580,
+      "warmup_wall_seconds": 0.071921067,
+      "target_seconds": 1.5,
+      "calibration_loop_limit": 64,
+      "wall_seconds": 1.472376173,
+      "thread_cpu_seconds": 1.47219246,
+      "wall_MBps": 3022.8078,
+      "thread_cpu_MBps": 3023.185012
+    },
+    {
+      "type": "sample",
+      "round": 2,
+      "operation": "compress",
+      "loops": 5,
+      "input_bytes_per_loop": 211938580,
+      "warmup_wall_seconds": 0.311058874,
+      "target_seconds": 1.5,
+      "calibration_loop_limit": 64,
+      "wall_seconds": 1.554167299,
+      "thread_cpu_seconds": 1.55399986,
+      "wall_MBps": 681.839658,
+      "thread_cpu_MBps": 681.913124
+    },
+    {
+      "type": "sample",
+      "round": 3,
+      "operation": "compress",
+      "loops": 5,
+      "input_bytes_per_loop": 211938580,
+      "warmup_wall_seconds": 0.313108871,
+      "target_seconds": 1.5,
+      "calibration_loop_limit": 64,
+      "wall_seconds": 1.563230832,
+      "thread_cpu_seconds": 1.5630054,
+      "wall_MBps": 677.886387,
+      "thread_cpu_MBps": 677.984158
+    },
+    {
+      "type": "sample",
+      "round": 3,
+      "operation": "decompress",
+      "loops": 21,
+      "input_bytes_per_loop": 211938580,
+      "warmup_wall_seconds": 0.072886834,
+      "target_seconds": 1.5,
+      "calibration_loop_limit": 64,
+      "wall_seconds": 1.531193655,
+      "thread_cpu_seconds": 1.5310093,
+      "wall_MBps": 2906.693197,
+      "thread_cpu_MBps": 2907.043203
+    },
+    {
+      "type": "sample",
+      "round": 4,
+      "operation": "decompress",
+      "loops": 21,
+      "input_bytes_per_loop": 211938580,
+      "warmup_wall_seconds": 0.072803893,
+      "target_seconds": 1.5,
+      "calibration_loop_limit": 64,
+      "wall_seconds": 1.530683801,
+      "thread_cpu_seconds": 1.53046703,
+      "wall_MBps": 2907.661384,
+      "thread_cpu_MBps": 2908.073217
+    },
+    {
+      "type": "sample",
+      "round": 4,
+      "operation": "compress",
+      "loops": 5,
+      "input_bytes_per_loop": 211938580,
+      "warmup_wall_seconds": 0.310650371,
+      "target_seconds": 1.5,
+      "calibration_loop_limit": 64,
+      "wall_seconds": 1.56057294,
+      "thread_cpu_seconds": 1.56041774,
+      "wall_MBps": 679.04093,
+      "thread_cpu_MBps": 679.108467
+    },
+    {
+      "type": "sample",
+      "round": 5,
+      "operation": "compress",
+      "loops": 5,
+      "input_bytes_per_loop": 211938580,
+      "warmup_wall_seconds": 0.313278671,
+      "target_seconds": 1.5,
+      "calibration_loop_limit": 64,
+      "wall_seconds": 1.568029051,
+      "thread_cpu_seconds": 1.5677683,
+      "wall_MBps": 675.812033,
+      "thread_cpu_MBps": 675.924433
+    },
+    {
+      "type": "sample",
+      "round": 5,
+      "operation": "decompress",
+      "loops": 21,
+      "input_bytes_per_loop": 211938580,
+      "warmup_wall_seconds": 0.07232613,
+      "target_seconds": 1.5,
+      "calibration_loop_limit": 64,
+      "wall_seconds": 1.504844863,
+      "thread_cpu_seconds": 1.50466355,
+      "wall_MBps": 2957.587383,
+      "thread_cpu_MBps": 2957.943774
+    }
+  ]
+}
